@@ -25,5 +25,8 @@
         "sort-packages": true,
         "preferred-install": "dist",
         "optimize-autoloader": true
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^1.5"
     }
 }
