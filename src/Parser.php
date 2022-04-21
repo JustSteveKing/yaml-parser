@@ -16,7 +16,8 @@ final class Parser
     public function __construct(
         private readonly string $file,
         private array $contents = [],
-    ) {}
+    ) {
+    }
 
     /**
      * @return array<string,mixed>

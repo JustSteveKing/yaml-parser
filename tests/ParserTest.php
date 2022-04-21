@@ -5,7 +5,8 @@ declare(strict_types=1);
 use JustSteveKing\YamlParser\Exceptions\ParserException;
 use JustSteveKing\YamlParser\Parser;
 
-beforeEach(fn () =>
+beforeEach(
+    fn () =>
     $this->parser = new Parser(
         file: __DIR__ . '/Fixtures/openapi.yaml',
     ),
