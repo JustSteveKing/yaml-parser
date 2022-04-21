@@ -1,0 +1,14 @@
+{
+    "name": "juststeveking/yaml-parser",
+    "description": "A YAML parser for open api",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Steve McDougall",
+            "email": "juststevemcd@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
