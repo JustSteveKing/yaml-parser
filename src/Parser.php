@@ -39,17 +39,17 @@ final class Parser
      */
     public function paths(): array
     {
-        return $this->get(
+        return (array) $this->get(
             key: 'paths',
         );
     }
 
     /**
      * @param string $key
-     * @return array<string,mixed>
+     * @return mixed
      * @throws ParserException
      */
-    public function get(string $key): array
+    public function get(string $key): mixed
     {
         if (! isset($this->contents[$key])) {
             throw new ParserException(
@@ -57,7 +57,7 @@ final class Parser
             );
         }
 
-        return (array) $this->contents[$key];
+        return $this->contents[$key];
     }
 
     public function file(): string
