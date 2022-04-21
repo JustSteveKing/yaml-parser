@@ -9,17 +9,21 @@ use Symfony\Component\Yaml\Yaml;
 
 final class Parser
 {
+    /**
+     * @param string $file
+     * @param array<string,mixed> $contents
+     */
     public function __construct(
         private readonly string $file,
         private array $contents = [],
     ) {}
 
     /**
-     * @return mixed
+     * @return array<string,mixed>
      */
-    public function raw(): mixed
+    public function raw(): array
     {
-        return Yaml::parseFile(
+        return (array) Yaml::parseFile(
             filename: $this->file,
         );
     }
@@ -29,6 +33,10 @@ final class Parser
         $this->contents = $this->raw();
     }
 
+    /**
+     * @return array<string,mixed>
+     * @throws ParserException
+     */
     public function paths(): array
     {
         return $this->get(
@@ -36,7 +44,12 @@ final class Parser
         );
     }
 
-    public function get(string $key): mixed
+    /**
+     * @param string $key
+     * @return array<string,mixed>
+     * @throws ParserException
+     */
+    public function get(string $key): array
     {
         if (! isset($this->contents[$key])) {
             throw new ParserException(
@@ -44,7 +57,7 @@ final class Parser
             );
         }
 
-        return $this->contents[$key];
+        return (array) $this->contents[$key];
     }
 
     public function file(): string
@@ -52,6 +65,9 @@ final class Parser
         return $this->file;
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function contents(): array
     {
         return $this->contents;
